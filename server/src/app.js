@@ -18,7 +18,7 @@ require("./auth/passportGoogleSSO");
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(morgan("dev"));
-app.use(cors({ origin: "https://60fc7775afc7e680446b9830--xenodochial-clarke-bd4d3f.netlify.app/", credentials: true }));
+app.use(cors({credentials: true, origin: true}));
 app.use(express.json());
 
 app.set("trust proxy", 1);
@@ -49,13 +49,3 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 module.exports = app;
-module.exports = (statusCode, body) => {
-  return {  
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      },
-      statusCode: 200,
-      body: JSON.stringify(body)
-    };
-
-  };
