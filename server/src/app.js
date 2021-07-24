@@ -36,7 +36,7 @@ app.use(passport.session());
 
 app.get("/", (req, res) => {
   res.json({
-    message: "🦄🌈✨👋🌎🌍🌏✨🌈🦄",
+    message: "api portfolio MFCaballero",
   });
 });
 
