@@ -21,13 +21,19 @@ app.use(morgan("dev"));
 app.use(cors({ origin: "*", credentials: true }));
 app.use(express.json());
 
+app.set("trust proxy", 1);
+
 app.use(
   session({
     secret: "secretcode",
     resave: true,
-    saveUninitialized: true
-  })
-);
+    saveUninitialized: true,
+    cookie: {
+      sameSite: "none",
+      secure: true,
+      maxAge: 1000 * 60 * 60 * 24 * 7 // One Week
+    }
+}))
 
 app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
