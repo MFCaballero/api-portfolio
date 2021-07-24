@@ -33,14 +33,7 @@ app.use(cookieParser("secretcode"));
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-app.get("/", (req, res) => {
-  res.json({
-    message: "api portfolio MFCaballero",
-  });
-});
-
-app.use("/api", api);
+app.use("/", api);
 
 app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
   const status = err.status || 500;

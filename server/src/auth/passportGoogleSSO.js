@@ -3,7 +3,7 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 
 const { User } = require('../db');
 
-const GOOGLE_CALLBACK_URL = "/api/auth/google/callback";
+const GOOGLE_CALLBACK_URL = "/auth/google/callback";
 
 passport.use(
   new GoogleStrategy(
