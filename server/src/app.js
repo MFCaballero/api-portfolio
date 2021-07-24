@@ -49,3 +49,13 @@ app.use((err, req, res, next) => { // eslint-disable-line no-unused-vars
 });
 
 module.exports = app;
+module.exports = (statusCode, body) => {
+  return {  
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      },
+      statusCode: 200,
+      body: JSON.stringify(body)
+    };
+
+  };
